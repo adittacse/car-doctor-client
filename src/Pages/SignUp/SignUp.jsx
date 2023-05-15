@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import img from "../../assets/images/login/login.svg";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider.jsx";
+import {getAuth, updateProfile} from "firebase/auth";
 
 const SignUp = () => {
     const {createUser, logOut} = useContext(AuthContext);
@@ -26,7 +27,15 @@ const SignUp = () => {
                     .catch(error => {
                         setError(error.message);
                     });
-                setSuccess("User has been successfully created");
+                updateProfile(createdUser, {
+                    displayName: name,
+                })
+                    .then(() => {})
+                    .catch(error => {
+                        setError(error.message);
+                    })
+                console.log(createdUser);
+                setSuccess("User has been successfully created!");
             })
             .catch(error => {
                 setError(error.message);
@@ -62,12 +71,12 @@ const SignUp = () => {
                                 <input type="password" name="password" placeholder="Your password" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login"/>
+                                <input className="btn text-white bg-[#FF3811]" type="submit" value="Sign Up"/>
                             </div>
                         </form>
                         <p className="text-center my-4">Already have an account? <Link className="text-[#FF3811] font-bold" to="/login">Login</Link></p>
-                        <p className="text-warning">{success}</p>
-                        <p className="text-warning">{error}</p>
+                        <p className="text-warning text-center">{success}</p>
+                        <p className="text-warning text-center">{error}</p>
                     </div>
                 </div>
             </div>
