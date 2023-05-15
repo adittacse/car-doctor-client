@@ -1,16 +1,31 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import img from "../../assets/images/login/login.svg";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../providers/AuthProvider.jsx";
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext);
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
+    
     const handleSignUp = (event) => {
         event.preventDefault();
+        setSuccess("");
+        setError("");
         
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                setSuccess("User has been successfully created");
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
     
     return (
@@ -46,6 +61,8 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className="text-center my-4">Already have an account? <Link className="text-[#FF3811] font-bold" to="/login">Login</Link></p>
+                        <p className="text-warning">{success}</p>
+                        <p className="text-warning">{error}</p>
                     </div>
                 </div>
             </div>
