@@ -21,7 +21,11 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                logOut();
+                logOut()
+                    .then( () => {})
+                    .catch(error => {
+                        setError(error.message);
+                    });
                 setSuccess("User has been successfully created");
             })
             .catch(error => {
