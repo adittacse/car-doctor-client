@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import loginImg from "../../assets/images/login/login.svg";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../providers/AuthProvider.jsx";
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
+    
     const handleLogin = (event) => {
         event.preventDefault();
+        setSuccess("");
+        setError("");
         
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                setSuccess("Login successful!");
+            })
+            .catch(error => {
+                setError("Wrong Credentials");
+            })
     }
     
     return (
@@ -42,6 +57,8 @@ const Login = () => {
                             </div>
                         </form>
                         <p className="text-center my-4">New to Car Doctor? <Link className="text-[#FF3811] font-bold" to="/signup">Sign Up</Link></p>
+                        <p className="text-warning">{success}</p>
+                        <p className="text-warning">{error}</p>
                     </div>
                 </div>
             </div>
