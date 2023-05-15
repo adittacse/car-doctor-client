@@ -7,8 +7,8 @@ const Error = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
-                <img src={errorImage} className="max-w-sm rounded-lg shadow-2xl" />
-                <div className="ml-12">
+                <img src={errorImage} className="max-w-sm w-1/2 rounded-lg shadow-2xl" />
+                <div className="ml-12 w-1/2">
                     <h1 className="text-5xl font-bold">Oops!</h1>
                     <h2 className="text-4xl font-bold mt-6">404 Page Not Found</h2>
                     <p className="py-6">We're sorry, the page you requested could not be found. Please go back to the homepage.</p>
