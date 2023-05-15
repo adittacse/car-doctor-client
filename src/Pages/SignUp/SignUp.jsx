@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider.jsx";
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, logOut} = useContext(AuthContext);
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
     
@@ -21,6 +21,7 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
+                logOut();
                 setSuccess("User has been successfully created");
             })
             .catch(error => {
