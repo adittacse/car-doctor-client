@@ -23,7 +23,7 @@ const Login = () => {
                 setSuccess("Login successful!");
             })
             .catch(error => {
-                setError("Wrong Credentials");
+                setError("Wrong Credentials!");
             })
     }
     
@@ -53,12 +53,12 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login"/>
+                                <input className="btn text-white bg-[#FF3811]" type="submit" value="Login"/>
                             </div>
                         </form>
                         <p className="text-center my-4">New to Car Doctor? <Link className="text-[#FF3811] font-bold" to="/signup">Sign Up</Link></p>
-                        <p className="text-warning">{success}</p>
-                        <p className="text-warning">{error}</p>
+                        <p className="text-success text-center">{success}</p>
+                        <p className="text-warning text-center">{error}</p>
                     </div>
                 </div>
             </div>
