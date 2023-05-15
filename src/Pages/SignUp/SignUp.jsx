@@ -75,7 +75,7 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className="text-center my-4">Already have an account? <Link className="text-[#FF3811] font-bold" to="/login">Login</Link></p>
-                        <p className="text-warning text-center">{success}</p>
+                        <p className="text-success text-center">{success}</p>
                         <p className="text-warning text-center">{error}</p>
                     </div>
                 </div>
