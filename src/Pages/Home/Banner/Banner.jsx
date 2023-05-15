@@ -16,7 +16,7 @@ const Banner = () => {
                         <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <button className="btn btn-error mr-5">Discover More</button>
+                            <button className="btn btn-error mr-5 text-white">Discover More</button>
                             <button className="btn btn-outline">Latest Project</button>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ const Banner = () => {
                         <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <button className="btn btn-error mr-5">Discover More</button>
+                            <button className="btn btn-error mr-5 text-white">Discover More</button>
                             <button className="btn btn-outline">Latest Project</button>
                         </div>
                     </div>
@@ -50,7 +50,7 @@ const Banner = () => {
                         <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <button className="btn btn-error mr-5">Discover More</button>
+                            <button className="btn btn-error mr-5 text-white">Discover More</button>
                             <button className="btn btn-outline">Latest Project</button>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const Banner = () => {
                         <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <button className="btn btn-error mr-5">Discover More</button>
+                            <button className="btn btn-error mr-5 text-white">Discover More</button>
                             <button className="btn btn-outline">Latest Project</button>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ const Banner = () => {
                         <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <button className="btn btn-error mr-5">Discover More</button>
+                            <button className="btn btn-error mr-5 text-white">Discover More</button>
                             <button className="btn btn-outline">Latest Project</button>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ const Banner = () => {
                         <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
                         <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div className="flex">
-                            <button className="btn btn-error mr-5">Discover More</button>
+                            <button className="btn btn-error mr-5 text-white">Discover More</button>
                             <button className="btn btn-outline">Latest Project</button>
                         </div>
                     </div>
