@@ -12,7 +12,7 @@ const Bookings = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBookings(data))
-    },[]);
+    },[url]);
     
     const handleDelete = (id) => {
         Swal.fire({
@@ -44,6 +44,32 @@ const Bookings = () => {
         })
     }
     
+    const handleBookingConfirm = (id) => {
+        fetch(`http://localhost:3000/bookings/${id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({status: "Confirmed"})
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Confirmed!',
+                        'Your Booking Has Been Updated Successfully!',
+                        'success'
+                    )
+                    const remaining = bookings.filter(booking => booking._id !== id);
+                    const updated = bookings.find(booking => booking._id === id);
+                    updated.status = "Confirmed";
+                    const newBookings = [updated, ...remaining];
+                    setBookings(newBookings);
+                }
+            })
+    }
+    
     return (
         <div className="mb-10">
             <h2 className="text-center text-5xl mt-10 mb-10">Your Bookings: {bookings.length}</h2>
@@ -66,7 +92,10 @@ const Bookings = () => {
                     <tbody>
                     {/* row */}
                     {
-                        bookings.map(booking => <BookingRow key={booking._id} booking={booking} handleDelete={handleDelete}></BookingRow>)
+                        bookings.map(booking => <BookingRow key={booking._id}
+                                                            booking={booking}
+                                                            handleDelete={handleDelete}
+                                                            handleBookingConfirm={handleBookingConfirm}></BookingRow>)
                     }
                     </tbody>
                     {/* foot */}
