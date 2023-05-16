@@ -12,9 +12,15 @@ const NavBar = () => {
         <li><Link to="/services">Services</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/contact">Contact</Link></li>
-        <div>
+        <div className="flex">
             {
-                user && <li><Link onClick={logOut}>Logout</Link></li>
+                !user && <>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/signup">Sign Up</Link></li>
+                </>
+            }
+            {
+                user && <li><Link onClick={() => logOut().then(()=> {}).catch(error=>console.log(error))}>Logout</Link></li>
             }
         </div>
     </>
