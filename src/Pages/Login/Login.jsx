@@ -1,12 +1,16 @@
 import React, {useContext, useState} from 'react';
 import loginImg from "../../assets/images/login/login.svg";
-import {Link} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider.jsx";
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    const from = location.state?.from?.pathname || "/";
     
     const handleLogin = (event) => {
         event.preventDefault();
@@ -21,6 +25,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setSuccess("Login successful!");
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError("Wrong Credentials!");
