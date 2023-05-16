@@ -20,6 +20,9 @@ const NavBar = () => {
                 </>
             }
             {
+                user && <li><Link to="/bookings">My Bookings</Link></li>
+            }
+            {
                 user && <li><Link onClick={() => logOut().then(()=> {}).catch(error=>console.log(error))}>Logout</Link></li>
             }
         </div>
