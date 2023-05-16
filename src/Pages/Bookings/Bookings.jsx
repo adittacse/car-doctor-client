@@ -27,7 +27,7 @@ const Bookings = () => {
                             </label>
                         </th>
                         <th>Name</th>
-                        <th>Amount</th>
+                        <th>Service & Amount</th>
                         <th>Date</th>
                         <th></th>
                     </tr>
@@ -43,7 +43,7 @@ const Bookings = () => {
                     <tr>
                         <th></th>
                         <th>Name</th>
-                        <th>Amount</th>
+                        <th>Service & Amount</th>
                         <th>Date</th>
                         <th></th>
                     </tr>
