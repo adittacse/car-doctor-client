@@ -9,7 +9,7 @@ const Bookings = () => {
     const [bookings, setBookings] = useState([]);
     const navigate = useNavigate();
     
-    const url = `http://localhost:3000/bookings?email=${user?.email}`;
+    const url = `https://car-doctor-server-gray-eight.vercel.app/bookings?email=${user?.email}`;
     useEffect( () => {
         fetch(url, {
             method: "GET",
