@@ -55,25 +55,25 @@ const BookService = () => {
                         <label className="label">
                             <span className="label-text">Your Name</span>
                         </label>
-                        <input type="text" name="name" defaultValue={user?.displayName} placeholder="Your Name" className="input input-bordered" />
+                        <input type="text" name="name" defaultValue={user?.displayName} placeholder="Your Name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Your Email</span>
                         </label>
-                        <input type="text" name="email" defaultValue={user?.email} placeholder="Your Email" className="input input-bordered" />
+                        <input type="text" name="email" defaultValue={user?.email} placeholder="Your Email" className="input input-bordered" readOnly />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Date</span>
                         </label>
-                        <input type="date" name="date" id="date" className="input input-bordered"/>
+                        <input type="date" name="date" id="date" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Due Amount</span>
                         </label>
-                        <input type="text" name="amount" defaultValue={"$" + price} placeholder="Due AMount" className="input input-bordered" />
+                        <input type="text" name="amount" defaultValue={"$" + price} placeholder="Due AMount" className="input input-bordered" required />
                     </div>
                 </div>
                 <div className="form-control mt-6">
