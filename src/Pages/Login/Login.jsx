@@ -24,8 +24,25 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                const currentUser = {
+                    email: loggedUser.email
+                }
+                console.log(currentUser);
+                fetch("http://localhost:3000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("jwt response", data);
+                        localStorage.setItem("car-doctor-access-token", data.token);
+                        navigate(from, { replace: true });
+                    })
                 setSuccess("Login successful!");
-                navigate(from, { replace: true });
+                
             })
             .catch(error => {
                 setError("Wrong Credentials!");
