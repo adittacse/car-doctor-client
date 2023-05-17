@@ -37,7 +37,6 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("jwt response", data);
                         localStorage.setItem("car-doctor-access-token", data.token);
                         navigate(from, { replace: true });
                     })
