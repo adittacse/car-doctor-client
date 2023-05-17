@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import loginImg from "../../assets/images/login/login.svg";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider.jsx";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin.jsx";
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
@@ -23,25 +24,10 @@ const Login = () => {
         
         signIn(email, password)
             .then(result => {
-                const loggedUser = result.user;
-                const currentUser = {
-                    email: loggedUser.email
-                }
-                console.log(currentUser);
-                fetch("http://localhost:3000/jwt", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        localStorage.setItem("car-doctor-access-token", data.token);
-                        navigate(from, { replace: true });
-                    })
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
                 setSuccess("Login successful!");
-                
             })
             .catch(error => {
                 setError("Wrong Credentials!");
@@ -80,6 +66,7 @@ const Login = () => {
                         <p className="text-center my-4">New to Car Doctor? <Link className="text-[#FF3811] font-bold" to="/signup">Sign Up</Link></p>
                         <p className="text-success text-center">{success}</p>
                         <p className="text-warning text-center">{error}</p>
+                        <SocialLogin setSuccess={setSuccess} setError={setError}></SocialLogin>
                     </div>
                 </div>
             </div>

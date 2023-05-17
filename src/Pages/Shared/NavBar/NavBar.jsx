@@ -24,7 +24,7 @@ const NavBar = () => {
             }
             {
                 user && <li><Link onClick={() => logOut().then(() => {
-                    localStorage.removeItem("car-doctor-access-token");
+                
                 }).catch(error => {
                     console.log(error);
                 })}>Logout</Link></li>

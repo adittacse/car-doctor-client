@@ -3,6 +3,7 @@ import img from "../../assets/images/login/login.svg";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider.jsx";
 import {getAuth, updateProfile} from "firebase/auth";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin.jsx";
 
 const SignUp = () => {
     const {createUser, logOut} = useContext(AuthContext);
@@ -77,6 +78,7 @@ const SignUp = () => {
                         <p className="text-center my-4">Already have an account? <Link className="text-[#FF3811] font-bold" to="/login">Login</Link></p>
                         <p className="text-success text-center">{success}</p>
                         <p className="text-warning text-center">{error}</p>
+                        <SocialLogin setSuccess={setSuccess} setError={setError}></SocialLogin>
                     </div>
                 </div>
             </div>
