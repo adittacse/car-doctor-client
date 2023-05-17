@@ -38,7 +38,7 @@ const Bookings = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/bookings/${id}`, {
+                fetch(`https://car-doctor-server-gray-eight.vercel.app/bookings/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -58,7 +58,7 @@ const Bookings = () => {
     }
     
     const handleBookingConfirm = (id) => {
-        fetch(`http://localhost:3000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-gray-eight.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"
@@ -121,7 +121,6 @@ const Bookings = () => {
                         <th>Status</th>
                     </tr>
                     </tfoot>
-                
                 </table>
             </div>
         </div>
