@@ -12,7 +12,6 @@ const SocialLogin = ({ setSuccess, setError }) => {
                 setSuccess("Login successful!");
             })
             .catch(error => {
-                // setError(error.message);
                 setError("Something Wrong!");
             })
     }

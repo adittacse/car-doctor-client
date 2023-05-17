@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
 import {useLoaderData} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider.jsx";
+import Swal from "sweetalert2";
 
 const BookService = () => {
     const service = useLoaderData();
-    const {_id, service_id, title, img, price, description, facility} = service;
+    const {_id, title, img, price} = service;
     const {user} = useContext(AuthContext);
     
     const handleService = (event) => {
@@ -36,7 +37,11 @@ const BookService = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert("Service Booked Successfully!");
+                    Swal.fire(
+                        'Booked Successfully!',
+                        'Service Booked Successfully!',
+                        'success'
+                    )
                 }
             })
     }
